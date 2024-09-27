@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\vyber-api.props" />
+</Project>

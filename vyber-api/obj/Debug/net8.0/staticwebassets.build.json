@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "imYMUqmG1zp2C+rEzSa5r9BOMAJCiXN69oBnH6hFOeU=",
+  "Source": "vyber-api",
+  "BasePath": "_content/vyber-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
