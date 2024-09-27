@@ -1,44 +1,53 @@
-var builder = WebApplication.CreateBuilder(args);
+using System;
+using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
+using DotNetEnv;
+using vyber_api.Models;
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+namespace vyber_api
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Env.Load(".env"); // adjust the path if necessary
+            // Create the host and run the application
+            CreateHostBuilder(args).Build().Run();
+        }
 
-app.UseHttpsRedirection();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((context, config) =>
+            {
+                // Load environment variables
+                var uri = Environment.GetEnvironmentVariable("URI");
+                var databaseName = Environment.GetEnvironmentVariable("DATABASE_NAME");
+                var primaryKey = Environment.GetEnvironmentVariable("PRIMARY_KEY");
+                var primaryConnectionString = Environment.GetEnvironmentVariable("PRIMARY_CONNECTION_STRING");
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+                if (string.IsNullOrEmpty(uri) && string.IsNullOrEmpty(databaseName) && string.IsNullOrEmpty(primaryKey) && string.IsNullOrEmpty(primaryConnectionString) )
+                {
+                    throw new Exception("Environment Variables not found. Ensure the .env file is correctly configured and placed in the root directory.");
+                }
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+                // Add the connection string to configuration
+                var settings = new Dictionary<string, string>
+                {
+                    { "CosmosDb:Account", uri },                       // Add URI
+                    { "CosmosDb:DatabaseName", databaseName },      // Add Database Name
+                    { "CosmosDb:Key", primaryKey },          // Add Primary Key
+                    { "CosmosDb:PrimaryConnectionString", primaryConnectionString }  // Add Primary Connection String
 
-app.Run();
+                };
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+                config.AddInMemoryCollection(settings);
+            })
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+        });
+    }
 }

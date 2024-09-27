@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vyber-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4df54b40df823e20b68a042ff8089033e1390009")]
 [assembly: System.Reflection.AssemblyProductAttribute("vyber-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vyber-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
