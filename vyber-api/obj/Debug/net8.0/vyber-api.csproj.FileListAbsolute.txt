@@ -71,3 +71,4 @@ C:\Users\heera\Desktop\Personal Projects\vyber-api\vyber-api\obj\Debug\net8.0\re
 C:\Users\heera\Desktop\Personal Projects\vyber-api\vyber-api\obj\Debug\net8.0\vyber-api.pdb
 C:\Users\heera\Desktop\Personal Projects\vyber-api\vyber-api\obj\Debug\net8.0\vyber-api.genruntimeconfig.cache
 C:\Users\heera\Desktop\Personal Projects\vyber-api\vyber-api\obj\Debug\net8.0\ref\vyber-api.dll
+C:\Users\heera\Desktop\Personal Projects\vyber-api\vyber-api\bin\Debug\net8.0\SpotifyAPI.Web.dll

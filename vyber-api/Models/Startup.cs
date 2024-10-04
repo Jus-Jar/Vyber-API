@@ -24,6 +24,7 @@ namespace vyber_api.Models
             // Add other services...
             services.Configure<CosmosDbSettings>(Configuration.GetSection("CosmosDb"));
             services.AddSingleton<CosmosDbService>();
+            services.AddSingleton<SpotifyAuthApp>();
             
             services.AddControllers();
             services.AddControllers()

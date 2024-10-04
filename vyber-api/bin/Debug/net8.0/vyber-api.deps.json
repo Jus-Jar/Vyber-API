@@ -15,6 +15,7 @@
           "Microsoft.Azure.Cosmos": "3.43.1",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Newtonsoft.Json": "13.0.3",
+          "SpotifyAPI.Web": "7.1.1",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -563,6 +564,17 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
+      "SpotifyAPI.Web/7.1.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/SpotifyAPI.Web.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Sprache/2.3.1": {
         "dependencies": {
           "System.Globalization": "4.3.0",
@@ -1778,6 +1790,13 @@
       "sha512": "sha512-leXiwfiIkW7Gmn7cgnNcdtNAU70SjmKW3jxGj1iKHOvdn0zRWsgv/l2OJUO5zdGdiv2VRFnAsxxhDgMzofPdWg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.2",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512"
+    },
+    "SpotifyAPI.Web/7.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xMgjZkBqVlZNZ/hROhx5XsKEWQtxRmFTZs5mv6Z9w+fwzBnCR1EFSwTcdpKNiVx/Pa+9p7PJO0q1Cb+fOkQq6Q==",
+      "path": "spotifyapi.web/7.1.1",
+      "hashPath": "spotifyapi.web.7.1.1.nupkg.sha512"
     },
     "Sprache/2.3.1": {
       "type": "package",
